@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>V Dépannage | Réparation électroménager</title>
+<meta name="description" content="V Dépannage : dépannage et réparation électroménager. Gros et petit électroménager.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root{--orange:#f47721;--black:#101010;--panel:#191919;--white:#f5f3ef;--muted:#aaa49d;--side:255px;--header:100px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--white);font-family:Montserrat,Arial,sans-serif;line-height:1.7}
+button,input,textarea{font:inherit}
+.site-header{height:var(--header);position:fixed;z-index:10;top:0;left:0;right:0;background:#090909;border-bottom:1px solid rgba(244,119,33,.45);display:flex;align-items:center;justify-content:center}
+.header-logo img{height:78px;width:auto;max-width:75vw;object-fit:contain;filter:drop-shadow(0 0 14px #f4772150)}
+.sidebar{position:fixed;z-index:9;top:var(--header);bottom:0;left:0;width:var(--side);background:#151515;border-right:1px solid #f4772140;padding:35px 23px 22px;display:flex;flex-direction:column;transition:width .25s}
+.sidebar-label{font-size:11px;letter-spacing:4px;color:var(--orange);margin:8px 0 28px}
+.nav{display:flex;flex-direction:column;gap:10px}
+.nav button{border:0;border-left:2px solid transparent;background:none;color:#ccc;text-align:left;padding:13px 10px;cursor:pointer;display:flex;gap:17px;align-items:center;font-size:13px}
+.nav button:hover,.nav button.active{border-left-color:var(--orange);background:#f4772114;color:white}
+.nav span{color:var(--orange);font-family:'Barlow Condensed';font-size:20px}
+.sidebar-bottom{margin-top:auto;color:#aaa;font-size:10px;line-height:1.8;border-top:1px solid #ffffff18;padding-top:20px}
+.sidebar-toggle{position:absolute;right:-17px;top:40px;width:34px;height:42px;background:var(--orange);color:#111;border:0;border-radius:0 5px 5px 0;font-size:24px;cursor:pointer}
+main{margin-left:var(--side);padding-top:var(--header);transition:margin .25s}
+body.collapsed .sidebar{width:62px;padding-left:10px;padding-right:10px}
+body.collapsed main{margin-left:62px}
+body.collapsed .sidebar-label,body.collapsed .sidebar-bottom,body.collapsed .nav button span,body.collapsed .nav button .nav-text{display:none}
+body.collapsed .nav button{justify-content:center;font-size:0}
+body.collapsed .nav button:after{content:attr(data-short);font-size:13px;color:var(--orange)}
+body.collapsed .sidebar-toggle{font-size:0}
+body.collapsed .sidebar-toggle:after{content:"›";font-size:25px}
+.page{display:none;min-height:calc(100vh - var(--header))}
+.page.active{display:block;animation:fade .35s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero{min-height:650px;padding:100px clamp(25px,8vw,110px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:radial-gradient(ellipse at 80% 40%,#f477211b,transparent 45%),linear-gradient(130deg,#111,#1c1b19 65%,#101010);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(135deg,transparent 0 75px,#ffffff05 76px 77px)}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:700}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;line-height:1.05;font-weight:600;margin:0}
+.hero h1{font-size:clamp(55px,8vw,110px);max-width:800px;margin-top:22px}
+em{font-style:normal;color:var(--orange)}
+.hero-intro{max-width:610px;color:#c3bdb5;margin:28px 0;font-size:14px}
+.button{display:inline-flex;align-items:center;gap:25px;padding:14px 22px;background:var(--orange);color:#111;text-decoration:none;border:1px solid var(--orange);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;cursor:pointer}
+.button:hover{background:transparent;color:var(--orange)}
+.scroll-note{font-size:10px;letter-spacing:2px;color:#999;margin-top:65px;text-transform:uppercase}
+.section{padding:90px clamp(22px,7vw,95px)}
+.heading{text-align:center;margin:0 auto 50px}
+.heading h2,.banner h1{font-size:clamp(48px,6vw,78px);margin-top:13px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid #ffffff12;padding:30px}
+.number{color:var(--orange);font-family:'Barlow Condensed';font-size:23px}
+.card h3{font-size:27px;margin:25px 0 13px}
+.card p,.service-card p{font-size:13px;color:var(--muted)}
+.commitment{margin-top:22px;padding:38px;background:#1b1b1b;border-left:3px solid var(--orange);display:grid;grid-template-columns:1fr 1.5fr;gap:35px;align-items:center}
+.commitment h2{font-size:45px;margin-top:12px}
+.commitment p{font-size:13px;color:#c3bdb5}
+.banner{text-align:center;padding:100px 20px 60px;background:radial-gradient(ellipse at 50% 0%,#f477211b,transparent 65%),#151515}
+.banner>p:last-child{color:var(--muted);font-size:13px;margin-top:20px}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-top:60px;padding-bottom:60px}
+.service-card{background:var(--panel);border:1px solid #ffffff12;padding:35px;min-height:320px}
+.service-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}
+.service-tag{font-size:10px;color:var(--orange);border:1px solid #f4772155;padding:6px 12px;text-transform:uppercase;letter-spacing:2px}
+.service-card h2{font-size:43px;margin-bottom:18px}
+.service-examples{border-top:1px solid #ffffff18;padding-top:15px}
+.service-contact{text-align:center;background:#151515;padding:50px 20px 75px}
+.service-contact p{font-size:13px;color:#bbb;margin-bottom:22px}
+.contact-area{padding:60px 20px 90px;display:flex;justify-content:center}
+.contact-card{width:min(100%,720px);background:var(--panel);border:1px solid #ffffff15;padding:38px}
+.contact-card h2{font-size:42px;margin:12px 0 28px}
+.contact-card label{display:block;font-size:12px;margin:15px 0 7px}
+.contact-card input,.contact-card textarea{width:100%;padding:13px;background:#101010;border:1px solid #444;color:white;outline:none}
+.contact-card input:focus,.contact-card textarea:focus{border-color:var(--orange)}
+.contact-card textarea{min-height:140px;resize:vertical}
+.contact-card .button{margin-top:22px}
+footer{overflow:hidden;background:#080808;border-top:1px solid #f4772140;padding:17px 0;color:#aaa;font-size:10px;letter-spacing:2px}
+.marquee{display:flex;gap:65px;width:max-content;animation:move 25s linear infinite}
+.marquee span{white-space:nowrap}
+@keyframes move{to{transform:translateX(-33.333%)}}
+@media(max-width:850px){.cards{grid-template-columns:1fr}.commitment{grid-template-columns:1fr}.services{grid-template-columns:1fr}}
+@media(max-width:600px){
+:root{--header:80px}
+.site-header{justify-content:flex-start;padding-left:15px}
+.header-logo img{height:62px}
+.sidebar{width:min(82vw,290px);transform:translateX(-105%);box-shadow:15px 0 30px #0008}
+body.mobile-open .sidebar{transform:translateX(0)}
+.sidebar-toggle{display:none}
+main,body.collapsed main{margin-left:0}
+body.collapsed .sidebar{width:min(82vw,290px);padding:35px 23px 22px}
+body.collapsed .sidebar-label,body.collapsed .sidebar-bottom{display:block}
+body.collapsed .nav button{justify-content:flex-start;font-size:13px}
+body.collapsed .nav button span,body.collapsed .nav button .nav-text{display:inline}
+body.collapsed .nav button:after{display:none}
+.hero{min-height:570px;padding:75px 25px}
+.hero h1{font-size:clamp(53px,14vw,78px)}
+.section{padding:65px 20px}
+.banner{padding:75px 18px 45px}
+.services{padding:35px 18px}
+.service-card{padding:27px;min-height:0}
+.contact-card{padding:25px 19px}
+}
+.mobile-menu{display:none;position:fixed;z-index:12;right:15px;top:22px;background:#151515;border:1px solid #f4772177;color:var(--orange);padding:8px 12px;font-size:20px}
+@media(max-width:600px){.mobile-menu{display:block}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<a class="header-logo" href="#accueil" aria-label="V Dépannage - Accueil">
+<img src="images/logo-vd.png" alt="Logo V Dépannage">
+</a>
+</header>
+
+<button class="mobile-menu" id="mobileMenu" aria-label="Ouvrir la navigation">☰</button>
+
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-label">Navigation</div>
+<nav class="nav">
+<button class="active" data-page="accueil" data-short="01"><span>01</span><b class="nav-text">Accueil</b></button>
+<button data-page="services" data-short="02"><span>02</span><b class="nav-text">Nos services</b></button>
+<button data-page="contact" data-short="03"><span>03</span><b class="nav-text">Contact</b></button>
+</nav>
+<div class="sidebar-bottom">V Dépannage, entreprise enregistrée sous le SIRET n°98742813300027</div>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Rétracter la navigation">‹</button>
+</aside>
+
+<main>
+<section class="page active" id="accueil">
+<div class="hero">
+<p class="eyebrow">Dépannage et réparation électroménager</p>
+<h1>Donnez une seconde vie<br><em>à vos appareils.</em></h1>
+<p class="hero-intro">Un appareil en panne ? Nous vous accompagnons pour trouver une solution adaptée, avec sérieux, transparence et savoir-faire.</p>
+<button class="button" data-go="services">Découvrir nos services <span>↗</span></button>
+<div class="scroll-note">— Faites défiler pour découvrir</div>
+</div>
+
+<div class="section">
+<div class="heading">
+<p class="eyebrow">Notre philosophie</p>
+<h2>Un service qui fait<br><em>la différence.</em></h2>
+</div>
+<div class="cards">
+<article class="card"><div class="number">01</div><h3>Un service de proximité</h3><p>Nous privilégions l'écoute et l'échange afin de comprendre votre besoin et de vous accompagner au mieux.</p></article>
+<article class="card"><div class="number">02</div><h3>Un travail sérieux</h3><p>Chaque appareil est étudié avec attention pour rechercher une solution cohérente et adaptée à sa panne.</p></article>
+<article class="card"><div class="number">03</div><h3>La transparence avant tout</h3><p>Vous êtes informé des possibilités de réparation et des étapes à suivre, en toute simplicité.</p></article>
+</div>
+<div class="commitment">
+<div><p class="eyebrow">Notre engagement</p><h2>La confiance,<br><em>avant tout.</em></h2></div>
+<p>Chaque panne est différente. Nous prenons le temps d'étudier votre appareil afin de vous proposer la solution la plus adaptée. Chez V Dépannage, nous privilégions l'honnêteté, le conseil et le travail bien fait. Vous êtes informé à chaque étape, car nous estimons qu'une réparation réussie commence avant tout par une relation de confiance.</p>
+</div>
+</div>
+</section>
+
+<section class="page" id="services">
+<div class="banner">
+<p class="eyebrow">Ce que nous proposons</p>
+<h1>Nos <em>services.</em></h1>
+<p>Une prise en charge adaptée à votre appareil et à votre situation.</p>
+</div>
+<div class="section services">
+<article class="service-card">
+<div class="service-top"><span class="number">01</span><span class="service-tag">À domicile</span></div>
+<h2>Gros électroménager</h2>
+<p>Pour vos appareils volumineux, nous proposons une intervention à domicile afin d'étudier la panne et d'envisager la réparation.</p>
+<p class="service-examples">Lave-linge, lave-vaisselle, réfrigérateur, four et autres appareils de gros électroménager.</p>
+</article>
+<article class="service-card">
+<div class="service-top"><span class="number">02</span><span class="service-tag">En atelier</span></div>
+<h2>Petit électroménager</h2>
+<p>Les appareils plus faciles à transporter peuvent être déposés à l'atelier pour un diagnostic et une éventuelle réparation.</p>
+<p class="service-examples">Cafetières, aspirateurs, robots ménagers et autres petits appareils.</p>
+</article>
+</div>
+<div class="service-contact">
+<p>Un doute sur la prise en charge de votre appareil ?</p>
+<button class="button" data-go="contact">Parlons de votre panne ↗</button>
+</div>
+</section>
+
+<section class="page" id="contact">
+<div class="banner">
+<p class="eyebrow">Nous sommes à votre écoute</p>
+<h1>Contactez-<em>nous.</em></h1>
+<p>Décrivez-nous votre besoin, nous vous répondrons dès que possible.</p>
+</div>
+<div class="contact-area">
+<div class="contact-card">
+<p class="eyebrow">Votre demande</p>
+<h2>Envoyez-nous un message.</h2>
+<form id="contactForm">
+<label for="name">Votre nom</label>
+<input id="name" name="name" required autocomplete="name">
+<label for="email">Votre adresse e-mail</label>
+<input id="email" name="email" type="email" required autocomplete="email">
+<label for="phone">Votre téléphone</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel">
+<label for="message">Votre message</label>
+<textarea id="message" name="message" required></textarea>
+<button class="button" type="submit">Préparer mon message ↗</button>
+<p style="font-size:11px;color:#999">Votre logiciel de messagerie s'ouvrira pour envoyer votre demande.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="marquee">
+<span>© 2026 V Dépannage — Tous droits réservés.</span>
+<span>© 2026 V Dépannage — Tous droits réservés.</span>
+<span>© 2026 V Dépannage — Tous droits réservés.</span>
+</div></footer>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+function showPage(id){
+ if(!document.getElementById(id))return;
+ pages.forEach(p=>p.classList.toggle('active',p.id===id));
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+ history.replaceState(null,'','#'+id);
+ document.body.classList.remove('mobile-open');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+document.getElementById('sidebarToggle').addEventListener('click',()=>{
+ document.body.classList.toggle('collapsed');
+});
+document.getElementById('mobileMenu').addEventListener('click',()=>{
+ document.body.classList.toggle('mobile-open');
+});
+const requested=location.hash.slice(1);
+if(requested&&document.getElementById(requested))showPage(requested);
+document.getElementById('contactForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const f=new FormData(e.currentTarget);
+ const subject=encodeURIComponent('Demande de contact - V Dépannage');
+ const body=encodeURIComponent('Nom : '+f.get('name')+'\nE-mail : '+f.get('email')+'\nTéléphone : '+f.get('phone')+'\n\nMessage :\n'+f.get('message'));
+ window.location.href='mailto:?subject='+subject+'&body='+body;
+});
+</script>
+</body>
+</html>
