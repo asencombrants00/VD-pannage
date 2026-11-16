@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="V Dépannage : dépannage et réparation d'électroménager à domicile ou en atelier.">
+  <meta name="theme-color" content="#f47721">
+  <title>V Dépannage | Réparation électroménager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="header-logo" href="#accueil" data-page-link="accueil" aria-label="V Dépannage - Accueil"><img src="images/logo-vd.png" alt="Logo V Dépannage"></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+  </header>
+  <aside class="side-panel" id="side-panel">
+    <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Rétracter la navigation" aria-expanded="true" title="Rétracter / déployer la navigation"><span aria-hidden="true">‹</span></button>
+    <div class="side-label">Navigation</div>
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <button class="nav-link active" data-page-link="accueil"><span class="nav-index">01</span>Accueil</button>
+      <button class="nav-link" data-page-link="services"><span class="nav-index">02</span>Nos services</button>
+      <button class="nav-link" data-page-link="contact"><span class="nav-index">03</span>Contact</button>
+    </nav>
+    <div class="side-bottom"><span class="side-line"></span><span>V Dépannage, entreprise enregistrée sous le SIRET n°98742813300027</span></div>
+  </aside>
+  <main class="main-content">
+    <section class="page active" id="accueil">
+      <div class="hero">
+        <p class="hero-eyebrow">Dépannage et réparation électroménager</p>
+        <h1>Donnez une seconde vie<br><em>à vos appareils.</em></h1>
+        <p class="hero-intro">Un appareil en panne ? Nous vous accompagnons pour trouver une solution adaptée, avec sérieux, transparence et savoir-faire.</p>
+        <button class="primary-button" data-page-link="services">Découvrir nos services <span>↗</span></button>
+        <div class="hero-scroll"><span></span> Faites défiler pour découvrir</div>
+      </div>
+      <section class="content-section">
+        <div class="section-heading"><p class="section-eyebrow">Notre philosophie</p><h2>Un service qui fait<br><em>la différence.</em></h2></div>
+        <div class="info-grid">
+          <article class="info-card"><span class="card-number">01</span><h3>Un service de proximité</h3><p>Nous privilégions l'écoute et l'échange afin de comprendre votre besoin et de vous accompagner au mieux.</p></article>
+          <article class="info-card"><span class="card-number">02</span><h3>Un travail sérieux</h3><p>Chaque appareil est étudié avec attention pour rechercher une solution cohérente et adaptée à sa panne.</p></article>
+          <article class="info-card"><span class="card-number">03</span><h3>La transparence avant tout</h3><p>Vous êtes informé des possibilités de réparation et des étapes à suivre, en toute simplicité.</p></article>
+        </div>
+        <div class="transparency-card"><div><p class="section-eyebrow">Notre engagement</p><h2>La confiance, avant tout.</h2></div><p>Chaque panne est différente. Nous prenons le temps d'étudier votre appareil afin de vous proposer la solution la plus adaptée. Chez V Dépannage, nous privilégions l'honnêteté, le conseil et le travail bien fait. Vous êtes informé à chaque étape, car nous estimons qu'une réparation réussie commence avant tout par une relation de confiance.</p></div>
+      </section>
+    </section>
+    <section class="page" id="services">
+      <div class="page-banner"><p class="section-eyebrow">Ce que nous proposons</p><h1>Nos <em>services.</em></h1><p>Une prise en charge adaptée à votre appareil et à votre situation.</p></div>
+      <div class="content-section service-grid">
+        <article class="service-card"><div class="service-top"><span class="service-number">01</span><span class="service-tag">À domicile</span></div><h2>Gros électroménager</h2><p>Pour vos appareils volumineux, nous proposons une intervention à domicile afin d'étudier la panne et d'envisager la réparation.</p><p class="service-examples">Lave-linge, lave-vaisselle, réfrigérateur, four et autres appareils de gros électroménager.</p></article>
+        <article class="service-card"><div class="service-top"><span class="service-number">02</span><span class="service-tag">En atelier</span></div><h2>Petit électroménager</h2><p>Les appareils plus faciles à transporter peuvent être déposés à l'atelier pour un diagnostic et une éventuelle réparation.</p><p class="service-examples">Cafetières, aspirateurs, robots ménagers et autres petits appareils.</p></article>
+      </div>
+      <div class="service-contact"><p>Un doute sur la prise en charge de votre appareil ?</p><button class="primary-button" data-page-link="contact">Parlons de votre panne <span>↗</span></button></div>
+    </section>
+    <section class="page" id="contact">
+      <div class="page-banner"><p class="section-eyebrow">Nous sommes à votre écoute</p><h1>Contactez-<em>nous.</em></h1><p>Décrivez-nous votre besoin, nous vous répondrons dès que possible.</p></div>
+      <div class="contact-layout"><div class="contact-card"><p class="section-eyebrow">Votre demande</p><h2>Envoyez-nous un message.</h2>
+        <form action="https://formsubmit.co/v.depannage@protonmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message depuis le site V Dépannage"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://asencombrants00.github.io/VD-pannage/merci.html"><input type="hidden" name="_captcha" value="false">
+          <div class="form-honey" aria-hidden="true"><label for="website">Ne pas remplir ce champ</label><input type="text" name="_honey" id="website" tabindex="-1" autocomplete="off"></div>
+          <label for="nom">Nom</label><input type="text" id="nom" name="Nom" placeholder="Votre nom" required>
+          <label for="email">Adresse e-mail</label><input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+          <label for="sujet">Sujet</label><input type="text" id="sujet" name="Sujet" placeholder="Objet de votre demande" required>
+          <label for="message">Votre message</label><textarea id="message" name="message" rows="6" placeholder="Décrivez votre appareil et la panne rencontrée..." required></textarea>
+          <button class="primary-button submit-button" type="submit">Envoyer le message <span>↗</span></button>
+        </form>
+      </div></div>
+    </section>
+    <footer class="site-footer"><div class="footer-track"><span>© 2026 V Dépannage — Tous droits réservés.</span><span>© 2026 V Dépannage — Tous droits réservés.</span><span>© 2026 V Dépannage — Tous droits réservés.</span></div></footer>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
