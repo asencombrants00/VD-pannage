@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const menuToggle = document.getElementById('menu-toggle');
   const sidePanel = document.querySelector('.side-panel');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
 
   function showPage(pageId) {
     if (!document.getElementById(pageId)) return;
@@ -23,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     showPage(link.dataset.pageLink);
   }));
+
+  sidebarToggle?.addEventListener('click', () => {
+    const collapsed = document.body.classList.toggle('sidebar-collapsed');
+    sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+    sidebarToggle.setAttribute('aria-label', collapsed ? 'Déployer la navigation' : 'Rétracter la navigation');
+    sidebarToggle.querySelector('span').textContent = collapsed ? '›' : '‹';
+  });
 
   menuToggle?.addEventListener('click', () => {
     const open = sidePanel.classList.toggle('open');
