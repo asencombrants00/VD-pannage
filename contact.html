@@ -6,76 +6,7 @@
 <meta name="theme-color" content="#090a0b"><title>Demande de diagnostic | V Dépannage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--orange:#ff7417;--orange2:#ff9b24;--bg:#090a0b;--panel:#111214;--field:#242629;--line:#44464a;--white:#f7f7f7;--muted:#c2c2c5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% 15%,#242424 0,#101112 42%,#080909 100%);color:var(--white);font-family:Montserrat,Arial,sans-serif;min-height:100vh}
-.site-header{position:fixed;left:0;top:0;bottom:0;width:230px;min-height:100vh;height:100vh;padding:22px 16px;display:flex;flex-direction:column;align-items:stretch;gap:24px;border-right:1px solid #a84d16;background:#080909;overflow-y:auto}
-.header-logo{width:100%;display:flex;justify-content:center}.header-logo img{display:block;width:100%;height:auto;max-height:100px;object-fit:contain}
-.main-nav{display:flex;flex-direction:column;gap:8px;position:static;width:100%;padding:8px 0;background:transparent;border:0;z-index:5}
-.nav-link{display:block;color:#eee;text-decoration:none;text-transform:uppercase;font:700 17px 'Barlow Condensed',sans-serif;letter-spacing:.4px;padding:13px 14px;border-left:3px solid transparent;border-radius:0 7px 7px 0}
-.nav-link:hover,.nav-link.active{color:var(--orange2);background:#1c1c1d;border-left-color:var(--orange)}
-.header-contact{margin-top:auto;color:#fff;text-decoration:none;border:1px solid var(--orange);border-radius:30px;padding:13px 22px;font-size:14px;font-weight:700}
-.menu-toggle{display:none}
-.content-wrap{margin-left:230px;padding:35px clamp(20px,5vw,75px) 55px}
-.page-heading{text-align:center;max-width:900px;margin:0 auto 30px}.eyebrow{color:var(--orange2);font:800 15px 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 10px}
-h1,h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-top:0}h1{font-size:clamp(32px,4vw,54px);line-height:1.05;margin-bottom:12px}h2{font-size:27px;margin-bottom:14px}.orange{color:var(--orange)}
-.page-heading>p:last-child{color:#c9c9c9;line-height:1.6;margin:0}
-.contact-layout{display:grid;grid-template-columns:minmax(240px,.78fr) minmax(380px,1.4fr);gap:24px;max-width:1100px;margin:auto;align-items:start}
-.contact-aside,.contact-card{background:rgba(13,14,15,.96);border:1px solid #754019;border-radius:12px;padding:25px}
-.contact-aside{border-left:4px solid var(--orange);padding:24px 25px}
-.contact-aside p{color:#d0d0d0;font-size:14px;line-height:1.65;margin:0 0 12px}.contact-aside p:last-child{margin-bottom:0}.contact-card h2{margin-bottom:20px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-field{margin-bottom:16px;min-width:0}.form-field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
-input,select,textarea{width:100%;font:500 14px Montserrat,Arial,sans-serif;color:#f6f6f6;background:linear-gradient(145deg,#2a2b2e,#1c1d1f);border:1px solid #55575b;border-radius:7px;padding:14px 15px;outline:none;transition:border-color .15s,box-shadow .15s}
-select{appearance:none;padding-right:42px;background-image:linear-gradient(45deg,transparent 50%,var(--orange2) 50%),linear-gradient(135deg,var(--orange2) 50%,transparent 50%),linear-gradient(145deg,#2a2b2e,#1c1d1f);background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%,0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat}
-select option{background:#202124;color:#fff}input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 2px #ff741733}textarea{resize:vertical;min-height:120px;line-height:1.5}
-.price-box{display:none!important}.help{color:#aaa;font-size:12px;line-height:1.5;margin:6px 0 0}.price-box{display:none;border:1px solid #9b4d19;background:#21160f;border-radius:8px;padding:13px 15px;margin:5px 0 18px;font-size:14px}.price-box strong{color:var(--orange2);font-size:20px}.primary-button{border:0;border-radius:30px;background:linear-gradient(100deg,#ff8b16,#ff5c12);color:white;padding:15px 24px;font:800 17px 'Barlow Condensed',sans-serif;cursor:pointer;box-shadow:0 5px 18px #ff74172a}.primary-button:hover{filter:brightness(1.08)}.submit-button span{font-size:23px;margin-left:10px}
-.form-honey{position:absolute;left:-5000px}.suggestions{position:relative}.suggestion-list{position:absolute;z-index:10;left:0;right:0;top:100%;max-height:220px;overflow:auto;background:#1e2022;border:1px solid #ff7417;border-radius:7px}.suggestion-list button{display:block;width:100%;padding:11px 13px;text-align:left;background:transparent;color:#eee;border:0;border-bottom:1px solid #383838;font:500 13px Montserrat;cursor:pointer}.suggestion-list button:hover{background:#38302a}.notice{font-size:11px;color:#999;line-height:1.4;margin-top:8px}.site-footer{margin-left:230px;text-align:center;padding:22px;color:#8d8d8d;border-top:1px solid #292929;font-size:12px}
-@media(max-width:850px){
-.site-header{position:sticky;left:auto;top:0;bottom:auto;width:100%;height:auto;min-height:80px;padding:12px 16px;display:flex;flex-direction:row;align-items:center;gap:12px;border-right:0;border-bottom:1px solid #a84d16;overflow:visible}
-.header-logo{width:auto;max-width:230px;justify-content:flex-start}.header-logo img{width:min(230px,58vw);max-height:62px}
-.menu-toggle{display:flex;margin-left:auto;background:#151515;border:1px solid #714018;border-radius:6px;padding:10px;flex-direction:column;gap:4px}
-.menu-toggle span{display:block;width:20px;height:2px;background:var(--orange)}
-.header-contact{display:none}
-.main-nav{display:none;position:absolute;top:100%;left:0;right:0;bottom:auto;width:auto;margin:0;padding:12px;gap:2px;background:rgba(8,9,10,.99);border:1px solid #754019}
-.main-nav.open{display:flex}.nav-link{padding:10px;text-align:center}
-.content-wrap{margin-left:0;padding:28px 16px 40px}.contact-layout{grid-template-columns:1fr}.site-footer{margin-left:0}
-}
-@media(max-width:520px){.form-row{grid-template-columns:1fr;gap:0}.contact-card,.contact-aside{padding:19px}.page-heading{margin-bottom:22px}h1{font-size:34px}}.contact-card,.contact-aside{padding:19px}.page-heading{margin-bottom:22px}h1{font-size:34px}}
-
-/* Navigation latérale rétractable */
-@media(min-width:761px){.site-header{transition:width .22s ease;padding-bottom:78px}.menu-toggle{display:flex;position:fixed;left:14px;top:116px;bottom:auto;z-index:40;width:132px;height:36px;align-items:center;justify-content:flex-start;gap:8px;padding:0 10px;background:linear-gradient(100deg,var(--orange),var(--orange2));border:0;border-radius:6px;color:#fff;font:700 13px 'Barlow Condensed',sans-serif;box-shadow:0 3px 10px #0007;transition:left .22s ease,width .22s ease}.menu-toggle span{display:none}.menu-toggle:before{content:'‹';font:700 23px/1 Arial,sans-serif;color:#fff}.menu-toggle:after{content:'Navigation';font:700 13px 'Barlow Condensed',sans-serif;color:#fff}.content-wrap,.site-footer{transition:margin-left .22s ease}body.nav-collapsed .site-header{width:70px;padding-left:10px;padding-right:10px}body.nav-collapsed .header-logo,body.nav-collapsed .main-nav,body.nav-collapsed .header-contact{display:none}body.nav-collapsed .menu-toggle{left:14px;top:16px;width:38px;height:36px;padding:0;justify-content:center}body.nav-collapsed .menu-toggle:before{content:'›'}body.nav-collapsed .menu-toggle:after{content:''}body.nav-collapsed .content-wrap,body.nav-collapsed .site-footer{margin-left:70px}}
-@media(max-width:760px){.menu-toggle{position:static;display:flex;margin-left:auto;width:42px;height:40px;background:var(--orange);border:1px solid var(--orange2);border-radius:6px;align-items:center;justify-content:center;flex-direction:column;gap:4px}.menu-toggle span{display:block;width:20px;height:2px;background:#fff}.menu-toggle:before,.menu-toggle:after{content:none}}
-
-
-/* Navigation latérale en superposition : elle ne déplace jamais le contenu. */
-.site-header{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;min-height:100vh!important;margin:0!important;padding:22px 16px 70px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;z-index:90!important;background:#080909!important;border-right:1px solid #a84d16!important;overflow-y:auto!important;transition:transform .22s ease!important}
-.content-wrap,.site-footer{margin-left:0!important;}
-.content-wrap{width:min(1180px,92%)!important;margin-right:auto!important;margin-left:auto!important;padding:35px 0 55px!important;}
-.site-footer{width:100%!important;}
-.menu-toggle{display:flex!important;position:fixed!important;left:230px!important;top:16px!important;bottom:auto!important;z-index:110!important;width:32px!important;height:38px!important;padding:0!important;align-items:center!important;justify-content:center!important;gap:0!important;background:linear-gradient(135deg,#ff7417,#ff9b24)!important;border:0!important;border-radius:0 8px 8px 0!important;box-shadow:0 3px 12px #0008!important;cursor:pointer!important;}
-.menu-toggle span{display:none!important}
-.menu-toggle:before{content:'‹'!important;color:#fff!important;font:800 27px/1 Arial,sans-serif!important;}
-.menu-toggle:after{content:''!important}
-body.nav-collapsed .site-header{width:230px!important;transform:translateX(-100%)!important;padding:0!important;border:0!important;background:transparent!important;overflow:visible!important;}
-body.nav-collapsed .header-logo,body.nav-collapsed .main-nav,body.nav-collapsed .header-contact{display:none!important}
-body.nav-collapsed .menu-toggle{left:0!important;width:28px!important;height:38px!important;border-radius:0 8px 8px 0!important;}
-body.nav-collapsed .menu-toggle:before{content:'›'!important;}
-@media(max-width:850px){
- .site-header{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;min-height:100vh!important;padding:22px 16px 70px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;border-right:1px solid #a84d16!important;border-bottom:0!important;overflow-y:auto!important;}
- .header-logo{width:100%!important;max-width:none!important;justify-content:center!important}
- .header-logo img{width:100%!important;max-height:100px!important;height:auto!important}
- .main-nav{display:flex!important;position:static!important;flex-direction:column!important;width:100%!important;padding:8px 0!important;background:transparent!important;border:0!important;gap:8px!important}
- .nav-link{text-align:left!important;padding:13px 14px!important}
- .header-contact{display:block!important;margin-top:auto!important}
- .menu-toggle{position:fixed!important;left:230px!important;top:16px!important;width:32px!important;height:38px!important;}
- .content-wrap{margin:0 auto!important;width:min(1180px,92%)!important;padding:35px 0 55px!important}
- .site-footer{margin-left:0!important}
- body.nav-collapsed .site-header{transform:translateX(-100%)!important}
- body.nav-collapsed .menu-toggle{left:0!important;width:28px!important;}
-}
-@media(max-width:520px){.content-wrap{width:92%!important;padding-top:28px!important}.identity-row{grid-template-columns:1fr!important;gap:0!important}}
-
-</style></head>
+<link rel="stylesheet" href="css/styles.css"></head>
 <body>
 <header class="site-header">
 <a class="header-logo" href="index.html"><img src="images/logo-vd.png" alt="V Dépannage"></a>
@@ -93,7 +24,7 @@ body.nav-collapsed .menu-toggle:before{content:'›'!important;}
 <div class="form-field"><label for="category">Type d’appareil</label><select id="category" name="Type d’appareil" required><option value="">Sélectionnez une catégorie</option><option value="Gros électroménager">Gros électroménager — intervention à domicile</option><option value="Petit électroménager">Petit électroménager — dépôt à l’atelier (sans frais de déplacement)</option></select></div>
 <div class="form-field"><label for="appliance">Appareil</label><select id="appliance" name="Appareil" required disabled><option value="">Sélectionnez d’abord une catégorie</option></select></div>
 <div class="form-field"><label for="brand">Marque ou modèle</label><input id="brand" name="Marque ou modèle" placeholder="Marque ou modèle de l’appareil" required></div>
-<div class="form-field" id="address-wrap" hidden><label for="address">Adresse</label><div class="suggestions"><input id="address" name="Adresse complète du dépannage" autocomplete="street-address" placeholder="Saisissez une adresse ou une ville (ex. Saint Mau)"><div class="suggestion-list" id="suggestions" hidden></div></div><p class="help">Saisissez le début de votre adresse ou le nom de votre ville, puis sélectionnez une proposition avec son code postal. La distance est estimée depuis Saint-Maurice-l’Exil.</p><p class="notice">La suggestion de ville utilise le service public Adresse.data.gouv.fr ; le trajet routier est estimé par un service cartographique.</p></div>
+<div class="form-field" id="address-wrap" hidden><label for="address">Adresse</label><div class="suggestions"><input id="address" name="Adresse du dépannage" autocomplete="street-address" placeholder="Saisissez une adresse ou une ville (ex. Saint Mau)"><div class="suggestion-list" id="suggestions" hidden></div></div></div>
 
 <div class="price-box" id="price-box" aria-live="polite"></div><input type="hidden" id="distance-field" name="Distance estimée depuis Saint-Maurice-l’Exil"><input type="hidden" id="price-field" name="Prix estimé du diagnostic">
 <div class="form-field"><label for="problem">Description du problème</label><textarea id="problem" name="Description de la panne" placeholder="Décrivez les symptômes et depuis quand la panne est présente…" required></textarea></div>
@@ -105,15 +36,4 @@ body.nav-collapsed .menu-toggle:before{content:'›'!important;}
 <button class="primary-button submit-button" type="submit">Envoyer ma demande <span>›</span></button>
 </form></section></div></main>
 <footer class="site-footer"><p>© <span id="current-year"></span> V Dépannage — Tous droits réservés.</p></footer>
-<script>
-document.getElementById('current-year').textContent=new Date().getFullYear();
-const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('main-nav');toggle.addEventListener('click',()=>{if(window.matchMedia('(max-width:760px)').matches){const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));}else{const collapsed=document.body.classList.toggle('nav-collapsed');toggle.setAttribute('aria-expanded',String(!collapsed));toggle.setAttribute('aria-label',collapsed?'Ouvrir la barre de navigation':'Rétracter la barre de navigation');}});
-const category=document.getElementById('category'),appliance=document.getElementById('appliance'),addressWrap=document.getElementById('address-wrap'),address=document.getElementById('address'),suggestions=document.getElementById('suggestions'),priceBox=document.getElementById('price-box'),distanceField=document.getElementById('distance-field'),priceField=document.getElementById('price-field');
-const devices={'Gros électroménager':['Lave-linge','Sèche-linge','Lave-vaisselle','Réfrigérateur','Congélateur','Four','Cuisinière','Plaque de cuisson','Hotte','Cave à vin','Autre gros électroménager'],'Petit électroménager':['Aspirateur','Machine à café','Robot / robot pâtissier','Bouilloire','Grille-pain','Micro-ondes','Fer à repasser','Centrale vapeur','Mixeur / blender','Friteuse','Autre petit électroménager']};
-let chosenPlace=null,lookupTimer;
-category.addEventListener('change',()=>{appliance.innerHTML='<option value="">Sélectionnez un appareil</option>';(devices[category.value]||[]).forEach(v=>{let o=document.createElement('option');o.value=v;o.textContent=v;appliance.appendChild(o)});appliance.disabled=!category.value;const big=category.value==='Gros électroménager';addressWrap.hidden=!big;address.required=big;chosenPlace=null;distanceField.value='';priceField.value='';priceBox.style.display='none';suggestions.hidden=true;if(category.value==='Petit électroménager'){distanceField.value='Aucun déplacement — dépôt à l’atelier';priceField.value='20 €';priceBox.innerHTML='Diagnostic petit électroménager : <strong>20 €</strong><br><span class="help">Dépôt à l’atelier — aucun frais de déplacement.</span>';priceBox.style.display='none'}});
-
-address.addEventListener('input',()=>{clearTimeout(lookupTimer);chosenPlace=null;distanceField.value='';priceField.value='';priceBox.style.display='none';const q=address.value.trim();if(q.length<3){suggestions.hidden=true;return}lookupTimer=setTimeout(async()=>{try{const u='https://api-adresse.data.gouv.fr/search/?type=municipality&autocomplete=1&limit=8&q='+encodeURIComponent(q);const r=await fetch(u);const data=await r.json();const rows=data.features||[];suggestions.innerHTML='';rows.forEach(place=>{const p=place.properties||{};const label=p.label||[p.name,p.postcode,p.city].filter(Boolean).join(', ');const coords=(place.geometry&&place.geometry.coordinates)||[];const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>{address.value=label;chosenPlace={lat:+coords[1],lon:+coords[0],label};suggestions.hidden=true;estimate();});suggestions.appendChild(b)});suggestions.hidden=rows.length===0}catch(e){suggestions.hidden=true}},450)});
-async function estimate(){if(!chosenPlace)return;try{const start='4.778,45.399';const end=chosenPlace.lon+','+chosenPlace.lat;const r=await fetch('https://router.project-osrm.org/route/v1/driving/'+start+';'+end+'?overview=false');const data=await r.json();if(!data.routes||!data.routes[0])throw Error();const km=data.routes[0].distance/1000;let price,detail;if(km<=15){price=50;detail='jusqu’à 15 km'}else if(km<=30){price=60;detail='de 15 à 30 km'}else if(km<=50){price=70;detail='de 30 à 50 km'}else{price=null;detail='au-delà de 50 km — sur devis'}distanceField.value=km.toFixed(1)+' km (itinéraire routier estimé)';priceField.value=price===null?'Sur devis':price+' €';priceBox.innerHTML='Distance routière estimée : <strong>'+km.toFixed(1)+' km</strong><br>Diagnostic + déplacement : <strong>'+(price===null?'Sur devis':price+' €')+'</strong><br><span class="help">'+detail+'</span>';priceBox.style.display='none'}catch(e){distanceField.value='Non calculée';priceField.value='À confirmer';priceBox.innerHTML='Distance ou tarif à confirmer manuellement. <strong>La demande peut tout de même être envoyée.</strong>';priceBox.style.display='none'}}
-document.getElementById('diagnostic-form').addEventListener('submit',async e=>{if(category.value==='Petit électroménager'){distanceField.value='Aucun déplacement — dépôt à l’atelier';priceField.value='20 €';return;}if(category.value==='Gros électroménager'){if(!chosenPlace){e.preventDefault();alert('Choisissez une ville dans les suggestions pour calculer la distance estimée.');address.focus();return;}if(!priceField.value||priceField.value==='À confirmer'){e.preventDefault();await estimate();if(!priceField.value||priceField.value==='À confirmer'){alert('Le calcul de distance est momentanément indisponible. Réessayez dans quelques instants.');return;}e.target.submit();}}});
-</script></body></html>
+<script src="js/script.js"></script></body></html>

@@ -13,67 +13,67 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{c
 @media(max-width:390px){.header-logo{max-width:155px}.header-logo img{height:54px}.header-contact{font-size:.82rem;padding:7px 8px}.site-header{gap:7px}.hero h1{font-size:1.5rem}.title-rule{width:18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-/* Navigation latérale rétractable — toutes les pages */
-@media(min-width:761px){
- .site-header{position:fixed;left:0;top:0;bottom:0;width:230px;height:100vh;min-height:100vh;padding:22px 16px 78px;display:flex;flex-direction:column;align-items:stretch;gap:24px;grid-template-columns:none;overflow-y:auto;transition:width .22s ease;z-index:30}
- .header-logo{width:100%;max-width:none;justify-content:center}
- .header-logo img{width:100%;height:auto;max-height:100px;object-fit:contain;object-position:center}
- .main-nav{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;width:100%;padding:8px 0}
- .nav-link{display:block;text-align:left;padding:12px 14px;border-left:3px solid transparent;border-radius:0 7px 7px 0;white-space:normal}
- .nav-link:after{display:none}
- .header-contact{display:block;margin-top:auto;margin-bottom:0;text-align:center;white-space:normal}
- .menu-toggle{display:flex;position:fixed;left:14px;top:116px;bottom:auto;z-index:40;width:132px;height:36px;align-items:center;justify-content:flex-start;gap:8px;padding:0 10px;background:linear-gradient(100deg,var(--orange),var(--gold));border:0;border-radius:6px;color:#fff;font:700 13px 'Barlow Condensed',sans-serif;box-shadow:0 3px 10px #0007;transition:left .22s ease,width .22s ease}
- .menu-toggle span{display:none}
- .menu-toggle:before{content:'‹';font:700 23px/1 Arial,sans-serif;color:#fff}
- .menu-toggle:after{content:'Navigation';font:700 13px 'Barlow Condensed',sans-serif;color:#fff}
- .content-wrap{margin-left:230px;transition:margin-left .22s ease}
- .site-footer{margin-left:230px;transition:margin-left .22s ease}
- body.nav-collapsed .site-header{width:70px;padding-left:10px;padding-right:10px}
- body.nav-collapsed .header-logo,body.nav-collapsed .main-nav,body.nav-collapsed .header-contact{display:none}
- body.nav-collapsed .menu-toggle{left:14px;top:16px;width:38px;height:36px;padding:0;justify-content:center}
- body.nav-collapsed .menu-toggle:before{content:'›'}
- body.nav-collapsed .menu-toggle:after{content:''}
- body.nav-collapsed .content-wrap{margin-left:70px}
- body.nav-collapsed .site-footer{margin-left:70px}
+/* Navigation latérale fixe et superposée : elle ne modifie jamais le centrage du contenu. */
+.site-header{
+  position:fixed!important;left:0!important;top:0!important;bottom:0!important;
+  width:230px!important;height:100vh!important;min-height:100vh!important;
+  margin:0!important;padding:22px 16px 26px!important;
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;
+  overflow:visible!important;z-index:100!important;
+  background:rgba(8,9,10,.98)!important;border:0!important;border-right:1px solid rgba(255,111,0,.5)!important;
+  box-shadow:8px 0 28px rgba(0,0,0,.16);backdrop-filter:blur(14px);
+  transform:translateX(0);transition:transform .22s ease!important;
 }
+.site-header .header-logo{width:100%!important;max-width:none!important;justify-content:center!important}
+.site-header .header-logo img{display:block;width:100%!important;height:auto!important;max-height:100px!important;object-fit:contain!important;object-position:center!important}
+.site-header .main-nav{display:flex!important;position:static!important;inset:auto!important;width:100%!important;margin:0!important;padding:8px 0!important;
+  flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:8px!important;
+  background:transparent!important;border:0!important;box-shadow:none!important}
+.site-header .nav-link{display:block!important;width:100%!important;text-align:left!important;padding:13px 14px!important;border-left:3px solid transparent;border-radius:0 7px 7px 0!important;white-space:normal!important}
+.site-header .header-contact{display:block!important;margin-top:auto!important;white-space:nowrap!important;text-align:center!important}
+.site-header .menu-toggle{
+  display:flex!important;position:absolute!important;left:auto!important;right:-16px!important;top:50%!important;bottom:auto!important;
+  transform:translateY(-50%)!important;width:32px!important;height:42px!important;padding:0!important;
+  align-items:center!important;justify-content:center!important;gap:0!important;
+  border:0!important;border-radius:0 9px 9px 0!important;background:linear-gradient(135deg,#ff7417,#ff9b24)!important;
+  color:#fff!important;box-shadow:0 3px 12px #0008!important;z-index:120!important;cursor:pointer!important;
+}
+.site-header .menu-toggle span{display:none!important}
+.site-header .menu-toggle:before{content:'‹';display:block;color:#fff;font:800 29px/1 Arial,sans-serif!important}
+.site-header .menu-toggle:after{content:none!important}
+.content-wrap{display:block;width:min(1180px,92vw)!important;max-width:1180px!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}
+.hero{margin-left:0!important;margin-right:0!important;width:100%!important}
+.site-footer{width:100%!important;margin:0!important}
+body.nav-collapsed .site-header{transform:translateX(-100%)!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}
+body.nav-collapsed .site-header .header-logo,
+body.nav-collapsed .site-header .main-nav,
+body.nav-collapsed .site-header .header-contact{display:none!important}
+body.nav-collapsed .site-header .menu-toggle{
+  right:-24px!important;width:48px!important;height:48px!important;border-radius:0 10px 10px 0!important;
+  transform:translateY(-50%)!important;
+}
+body.nav-collapsed .site-header .menu-toggle:before{content:'›'!important;font-size:30px!important}
+
+/* Contact form: address autocomplete, with no explanatory service note or customer-visible price. */
+.contact-layout{width:min(1100px,100%);margin-inline:auto}
+.contact-card select{appearance:none;padding-right:42px;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%),linear-gradient(145deg,#2a2b2e,#1c1d1f);background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%,0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat}
+.contact-card select option{background:#202124;color:#fff}
+.contact-card input,.contact-card select,.contact-card textarea{font-family:'Montserrat',sans-serif}
+.contact-card .suggestions{position:relative}
+.contact-card .suggestion-list{position:absolute;z-index:150;left:0;right:0;top:calc(100% + 3px);max-height:260px;overflow:auto;background:#202124;border:1px solid var(--orange);border-radius:8px;box-shadow:0 10px 26px #0009}
+.contact-card .suggestion-list button{display:block;width:100%;padding:12px 14px;text-align:left;background:transparent;color:#f5f5f5;border:0;border-bottom:1px solid #3a3a3a;font:500 13px 'Montserrat',sans-serif;cursor:pointer}
+.contact-card .suggestion-list button:hover,.contact-card .suggestion-list button:focus{background:#3a3028;outline:0}
+.contact-card .price-box{display:none!important}
+.contact-card .help,.contact-card .notice{display:none!important}
 @media(max-width:760px){
- .site-header{position:sticky;left:auto;top:0;bottom:auto;width:100%;height:auto;min-height:78px;padding:7px 4%;display:flex;flex-direction:row;align-items:center;gap:10px;overflow:visible}
- .menu-toggle{display:flex;position:static;margin-left:auto;width:42px;height:40px;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:8px;background:var(--orange);border:1px solid var(--gold);border-radius:6px}
- .menu-toggle span{display:block;width:20px;height:2px;background:#fff;margin:0}
- .menu-toggle:before,.menu-toggle:after{content:none}
- .main-nav{display:none;position:absolute;top:100%;left:0;right:0;bottom:auto;width:auto;margin:0;padding:12px 5% 18px;flex-direction:column;gap:3px;background:rgba(8,9,10,.99);border-bottom:1px solid var(--orange)}
- .main-nav.open{display:flex}
- .nav-link{width:100%;text-align:center;padding:11px}
- .content-wrap,.site-footer{margin-left:0}
+  .site-header{width:min(230px,82vw)!important;padding:18px 14px 22px!important;gap:20px!important}
+  .site-header .header-logo img{max-height:82px!important}
+  .site-header .menu-toggle{right:-16px!important}
+  body.nav-collapsed .site-header .menu-toggle{right:-24px!important}
+  .content-wrap{width:92vw!important;padding-top:48px!important;padding-bottom:60px!important}
+  .hero{min-height:510px;padding:35px 15px 55px}
+  .values-grid,.impact-grid{grid-template-columns:1fr}
+  .home-services,.service-list,.contact-layout{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr;gap:0}
 }
-
-
-/* Ajustement demandé : panneau fixe, contenu immobile et poignée discrète à gauche */
-@media(min-width:761px){
-  .content-wrap,.site-footer{margin-left:230px!important}
-  body.nav-collapsed .content-wrap,body.nav-collapsed .site-footer{margin-left:230px!important}
-  body.nav-collapsed .site-header{width:0!important;min-width:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
-  body.nav-collapsed .site-header .header-logo,
-  body.nav-collapsed .site-header .main-nav,
-  body.nav-collapsed .site-header .header-contact{display:none!important}
-  body.nav-collapsed .menu-toggle{position:fixed!important;left:-18px!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:36px!important;height:52px!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;border:0!important;border-radius:0 9px 9px 0!important;background:linear-gradient(100deg,var(--orange),var(--gold))!important;box-shadow:0 3px 12px #0008!important;z-index:100!important;transition:left .18s ease!important}
-  body.nav-collapsed .menu-toggle:before{content:'›'!important;font:700 25px/1 Arial,sans-serif!important;color:#fff!important;margin-right:5px}
-  body.nav-collapsed .menu-toggle:after{content:''!important}
-  body.nav-collapsed .menu-toggle:hover,body.nav-collapsed .menu-toggle:focus-visible{left:0!important}
-}
-
-
-/* Navigation latérale superposée : le contenu reste centré quand elle s'ouvre/se ferme. */
-.site-header{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;min-height:100vh!important;margin:0!important;padding:22px 16px 70px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;z-index:90!important;background:rgba(8,9,10,.98)!important;border-right:1px solid rgba(255,111,0,.5)!important;border-bottom:0!important;overflow-y:auto!important;transition:transform .22s ease!important;backdrop-filter:blur(14px)}
-.header-logo{width:100%!important;max-width:none!important;justify-content:center!important}.header-logo img{width:100%!important;height:auto!important;max-height:100px!important;object-position:center!important}
-.main-nav{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:8px!important;position:static!important;width:100%!important;padding:8px 0!important;background:transparent!important;border:0!important}
-.nav-link{text-align:left!important;padding:13px 14px!important}
-.header-contact{display:block!important;margin-top:auto!important}
-.menu-toggle{display:flex!important;position:fixed!important;left:230px!important;top:16px!important;bottom:auto!important;z-index:110!important;width:32px!important;height:38px!important;padding:0!important;align-items:center!important;justify-content:center!important;gap:0!important;background:linear-gradient(135deg,#ff7417,#ff9b24)!important;border:0!important;border-radius:0 8px 8px 0!important;box-shadow:0 3px 12px #0008!important;}
-.menu-toggle span{display:none!important}.menu-toggle:before{content:'‹';color:#fff;font:800 27px/1 Arial,sans-serif}.menu-toggle:after{content:''}
-.content-wrap{width:min(1180px,92%)!important;margin:0 auto!important;padding-left:0!important;padding-right:0!important}.site-footer{margin-left:0!important;width:100%!important}
-body.nav-collapsed .site-header{width:230px!important;transform:translateX(-100%)!important;padding:0!important;border:0!important;background:transparent!important;overflow:visible!important}
-body.nav-collapsed .header-logo,body.nav-collapsed .main-nav,body.nav-collapsed .header-contact{display:none!important}
-body.nav-collapsed .menu-toggle{left:0!important;width:28px!important;height:38px!important;border-radius:0 8px 8px 0!important}
-body.nav-collapsed .menu-toggle:before{content:'›'!important}
-@media(max-width:850px){.site-header{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:230px!important;height:100vh!important;min-height:100vh!important;padding:22px 16px 70px!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important;overflow-y:auto!important}.header-logo{width:100%!important;max-width:none!important;justify-content:center!important}.header-logo img{width:100%!important;max-height:100px!important}.main-nav{display:flex!important;position:static!important;flex-direction:column!important;width:100%!important;padding:8px 0!important;background:transparent!important;border:0!important}.nav-link{text-align:left!important}.header-contact{display:block!important;margin-top:auto!important}.menu-toggle{position:fixed!important;left:230px!important;top:16px!important;width:32px!important;height:38px!important}.content-wrap{width:min(1180px,92%)!important;margin:0 auto!important;padding:35px 0 55px!important}.site-footer{margin-left:0!important}body.nav-collapsed .site-header{transform:translateX(-100%)!important}body.nav-collapsed .menu-toggle{left:0!important;width:28px!important}}
+@media(max-width:390px){.site-header{width:78vw!important}.content-wrap{width:90vw!important}.hero h1{font-size:1.5rem}.title-rule{width:18px}}
