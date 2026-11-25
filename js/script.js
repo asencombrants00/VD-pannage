@@ -1,18 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.getElementById('menu-toggle');
-  const mainNav = document.getElementById('main-nav');
-  const year = document.getElementById('current-year');
-  if (year) year.textContent = new Date().getFullYear();
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', () => {
-      const open = mainNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(open));
-      menuToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-    });
-    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
-    }));
-  }
-});
+document.addEventListener('DOMContentLoaded',()=>{const year=document.getElementById('current-year');if(year)year.textContent=new Date().getFullYear();const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('main-nav');if(!toggle||!nav)return;toggle.addEventListener('click',()=>{if(window.matchMedia('(max-width:760px)').matches){const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');}else{const collapsed=document.body.classList.toggle('nav-collapsed');toggle.setAttribute('aria-expanded',String(!collapsed));toggle.setAttribute('aria-label',collapsed?'Ouvrir la barre de navigation':'Rétracter la barre de navigation');}});});
