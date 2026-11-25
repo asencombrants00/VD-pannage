@@ -22,15 +22,15 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{c
  .nav-link{display:block;text-align:left;padding:12px 14px;border-left:3px solid transparent;border-radius:0 7px 7px 0;white-space:normal}
  .nav-link:after{display:none}
  .header-contact{display:block;margin-top:auto;margin-bottom:0;text-align:center;white-space:normal}
- .menu-toggle{display:flex;position:fixed;left:16px;bottom:18px;z-index:40;width:198px;height:42px;align-items:center;justify-content:flex-start;gap:12px;padding:0 14px;background:linear-gradient(100deg,var(--orange),var(--gold));border:0;border-radius:7px;color:#fff;font:700 14px 'Barlow Condensed',sans-serif;box-shadow:0 4px 14px #0008;transition:left .22s ease,width .22s ease}
+ .menu-toggle{display:flex;position:fixed;left:14px;top:116px;bottom:auto;z-index:40;width:132px;height:36px;align-items:center;justify-content:flex-start;gap:8px;padding:0 10px;background:linear-gradient(100deg,var(--orange),var(--gold));border:0;border-radius:6px;color:#fff;font:700 13px 'Barlow Condensed',sans-serif;box-shadow:0 3px 10px #0007;transition:left .22s ease,width .22s ease}
  .menu-toggle span{display:none}
- .menu-toggle:before{content:'‹';font:700 26px/1 Arial,sans-serif;color:#fff}
- .menu-toggle:after{content:'Barre de navigation';font:700 14px 'Barlow Condensed',sans-serif;color:#fff}
+ .menu-toggle:before{content:'‹';font:700 23px/1 Arial,sans-serif;color:#fff}
+ .menu-toggle:after{content:'Navigation';font:700 13px 'Barlow Condensed',sans-serif;color:#fff}
  .content-wrap{margin-left:230px;transition:margin-left .22s ease}
  .site-footer{margin-left:230px;transition:margin-left .22s ease}
  body.nav-collapsed .site-header{width:70px;padding-left:10px;padding-right:10px}
  body.nav-collapsed .header-logo,body.nav-collapsed .main-nav,body.nav-collapsed .header-contact{display:none}
- body.nav-collapsed .menu-toggle{left:14px;width:42px;padding:0;justify-content:center}
+ body.nav-collapsed .menu-toggle{left:14px;top:16px;width:38px;height:36px;padding:0;justify-content:center}
  body.nav-collapsed .menu-toggle:before{content:'›'}
  body.nav-collapsed .menu-toggle:after{content:''}
  body.nav-collapsed .content-wrap{margin-left:70px}
