@@ -1,54 +1,83 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Demander un diagnostic auprès de V Dépannage pour votre appareil électroménager."><meta name="theme-color" content="#090a0b"><title>Contact | V Dépannage</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Demande de diagnostic et de réparation électroménager auprès de V Dépannage.">
+<meta name="theme-color" content="#090a0b"><title>Demande de diagnostic | V Dépannage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Ajustements de la page Contact */
-.site-header{display:flex;align-items:center;gap:22px}
-.main-nav{margin-left:auto;justify-content:flex-end}
-.header-contact{flex-shrink:0}
-.contact-layout{align-items:stretch}
-.contact-aside{padding:30px;border-left:3px solid #f47721}
-.contact-aside h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
-.contact-aside .eco-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1.05;margin:0 0 18px}
-.contact-aside .eco-title span{color:#f47721}
-.contact-aside p{line-height:1.7}
-.contact-card h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
-.diagnostic-form .form-field{margin-bottom:18px}
-.diagnostic-form label{display:block;margin-bottom:8px;font-weight:700}
-.diagnostic-form input,.diagnostic-form textarea,.diagnostic-form select{
-  width:100%;box-sizing:border-box;background:#242527;color:#f5f5f5;border:1px solid #55585c;
-  border-radius:6px;padding:14px 15px;font:500 16px 'Montserrat',sans-serif;outline:none;
-  transition:border-color .18s,box-shadow .18s
+:root{--orange:#ff7417;--orange2:#ff9b24;--bg:#090a0b;--panel:#111214;--field:#242629;--line:#44464a;--white:#f7f7f7;--muted:#c2c2c5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% 15%,#242424 0,#101112 42%,#080909 100%);color:var(--white);font-family:Montserrat,Arial,sans-serif;min-height:100vh}
+.site-header{position:fixed;left:0;top:0;bottom:0;width:230px;min-height:100vh;height:100vh;padding:22px 16px;display:flex;flex-direction:column;align-items:stretch;gap:24px;border-right:1px solid #a84d16;background:#080909;overflow-y:auto}
+.header-logo{width:100%;display:flex;justify-content:center}.header-logo img{display:block;width:100%;height:auto;max-height:100px;object-fit:contain}
+.main-nav{display:flex;flex-direction:column;gap:8px;position:static;width:100%;padding:8px 0;background:transparent;border:0;z-index:5}
+.nav-link{display:block;color:#eee;text-decoration:none;text-transform:uppercase;font:700 17px 'Barlow Condensed',sans-serif;letter-spacing:.4px;padding:13px 14px;border-left:3px solid transparent;border-radius:0 7px 7px 0}
+.nav-link:hover,.nav-link.active{color:var(--orange2);background:#1c1c1d;border-left-color:var(--orange)}
+.header-contact{margin-top:auto;color:#fff;text-decoration:none;border:1px solid var(--orange);border-radius:30px;padding:13px 22px;font-size:14px;font-weight:700}
+.menu-toggle{display:none}
+.content-wrap{margin-left:230px;padding:35px clamp(20px,5vw,75px) 55px}
+.page-heading{text-align:center;max-width:900px;margin:0 auto 30px}.eyebrow{color:var(--orange2);font:800 15px 'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 10px}
+h1,h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;margin-top:0}h1{font-size:clamp(32px,4vw,54px);line-height:1.05;margin-bottom:12px}h2{font-size:27px;margin-bottom:14px}.orange{color:var(--orange)}
+.page-heading>p:last-child{color:#c9c9c9;line-height:1.6;margin:0}
+.contact-layout{display:grid;grid-template-columns:minmax(240px,.78fr) minmax(380px,1.4fr);gap:24px;max-width:1100px;margin:auto;align-items:start}
+.contact-aside,.contact-card{background:rgba(13,14,15,.96);border:1px solid #754019;border-radius:12px;padding:25px}
+.contact-aside{border-left:4px solid var(--orange);padding:24px 25px}
+.contact-aside p{color:#d0d0d0;font-size:14px;line-height:1.65;margin:0 0 12px}.contact-aside p:last-child{margin-bottom:0}.contact-card h2{margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-field{margin-bottom:16px;min-width:0}.form-field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+input,select,textarea{width:100%;font:500 14px Montserrat,Arial,sans-serif;color:#f6f6f6;background:linear-gradient(145deg,#2a2b2e,#1c1d1f);border:1px solid #55575b;border-radius:7px;padding:14px 15px;outline:none;transition:border-color .15s,box-shadow .15s}
+select{appearance:none;padding-right:42px;background-image:linear-gradient(45deg,transparent 50%,var(--orange2) 50%),linear-gradient(135deg,var(--orange2) 50%,transparent 50%),linear-gradient(145deg,#2a2b2e,#1c1d1f);background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%,0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat}
+select option{background:#202124;color:#fff}input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 2px #ff741733}textarea{resize:vertical;min-height:120px;line-height:1.5}
+.help{color:#aaa;font-size:12px;line-height:1.5;margin:6px 0 0}.price-box{display:none;border:1px solid #9b4d19;background:#21160f;border-radius:8px;padding:13px 15px;margin:5px 0 18px;font-size:14px}.price-box strong{color:var(--orange2);font-size:20px}.primary-button{border:0;border-radius:30px;background:linear-gradient(100deg,#ff8b16,#ff5c12);color:white;padding:15px 24px;font:800 17px 'Barlow Condensed',sans-serif;cursor:pointer;box-shadow:0 5px 18px #ff74172a}.primary-button:hover{filter:brightness(1.08)}.submit-button span{font-size:23px;margin-left:10px}
+.form-honey{position:absolute;left:-5000px}.suggestions{position:relative}.suggestion-list{position:absolute;z-index:10;left:0;right:0;top:100%;max-height:220px;overflow:auto;background:#1e2022;border:1px solid #ff7417;border-radius:7px}.suggestion-list button{display:block;width:100%;padding:11px 13px;text-align:left;background:transparent;color:#eee;border:0;border-bottom:1px solid #383838;font:500 13px Montserrat;cursor:pointer}.suggestion-list button:hover{background:#38302a}.notice{font-size:11px;color:#999;line-height:1.4;margin-top:8px}.site-footer{margin-left:230px;text-align:center;padding:22px;color:#8d8d8d;border-top:1px solid #292929;font-size:12px}
+@media(max-width:850px){
+.site-header{position:sticky;left:auto;top:0;bottom:auto;width:100%;height:auto;min-height:80px;padding:12px 16px;display:flex;flex-direction:row;align-items:center;gap:12px;border-right:0;border-bottom:1px solid #a84d16;overflow:visible}
+.header-logo{width:auto;max-width:230px;justify-content:flex-start}.header-logo img{width:min(230px,58vw);max-height:62px}
+.menu-toggle{display:flex;margin-left:auto;background:#151515;border:1px solid #714018;border-radius:6px;padding:10px;flex-direction:column;gap:4px}
+.menu-toggle span{display:block;width:20px;height:2px;background:var(--orange)}
+.header-contact{display:none}
+.main-nav{display:none;position:absolute;top:100%;left:0;right:0;bottom:auto;width:auto;margin:0;padding:12px;gap:2px;background:rgba(8,9,10,.99);border:1px solid #754019}
+.main-nav.open{display:flex}.nav-link{padding:10px;text-align:center}
+.content-wrap{margin-left:0;padding:28px 16px 40px}.contact-layout{grid-template-columns:1fr}.site-footer{margin-left:0}
 }
-.diagnostic-form select{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:600;cursor:pointer;
-  border-color:#e87524;appearance:auto}
-.diagnostic-form select:focus,.diagnostic-form input:focus,.diagnostic-form textarea:focus{border-color:#f47721;box-shadow:0 0 0 2px #f4772130}
-.diagnostic-form select option{background:#242527;color:#f5f5f5}
-.diagnostic-form textarea{resize:vertical;min-height:150px}
-.diagnostic-form .hint{font-size:13px;color:#bcbec2;margin-top:6px}
-.diagnostic-form [hidden]{display:none!important}
-@media(max-width:900px){.site-header{flex-wrap:wrap}.main-nav{margin-left:0;order:3;width:100%;justify-content:flex-end}.header-contact{margin-left:auto}}
-@media(max-width:600px){.main-nav{justify-content:center;gap:12px;flex-wrap:wrap}.header-contact{display:none}.contact-layout{grid-template-columns:1fr}}
-</style></head><body>
-<header class="site-header"><a class="header-logo" href="index.html"><img src="images/logo-vd.png" alt="V Dépannage"></a><button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button><nav class="main-nav" id="main-nav"><a class="nav-link" href="index.html">Accueil</a><a class="nav-link" href="services.html">Nos services</a><a class="nav-link" href="engagement.html">Notre engagement</a><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></nav><a class="header-contact" href="contact.html"><span>☎</span> Nous contacter</a></header>
-<main class="content-wrap"><div class="page-heading"><p class="eyebrow">Nous sommes à votre écoute</p><h1>Demandez votre <span class="orange">diagnostic</span></h1><p>Décrivez-nous votre appareil et la panne rencontrée. Nous vous recontacterons pour étudier votre demande.</p></div>
+@media(max-width:520px){.form-row{grid-template-columns:1fr;gap:0}.contact-card,.contact-aside{padding:19px}.page-heading{margin-bottom:22px}h1{font-size:34px}}.contact-card,.contact-aside{padding:19px}.page-heading{margin-bottom:22px}h1{font-size:34px}}
+</style></head>
+<body>
+<header class="site-header">
+<a class="header-logo" href="index.html"><img src="images/logo-vd.png" alt="V Dépannage"></a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+<nav class="main-nav" id="main-nav"><a class="nav-link" href="index.html">Accueil</a><a class="nav-link" href="services.html">Nos services</a><a class="nav-link" href="engagement.html">Notre engagement</a><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></nav>
+<a class="header-contact" href="#demande">☎ Nous contacter</a></header>
+<main class="content-wrap">
+<div class="page-heading"><p class="eyebrow">Nous sommes à votre écoute</p><h1>Demande de diagnostic <span class="orange">V Dépannage</span></h1><p>Décrivez votre appareil et la panne : nous étudierons votre demande et vous recontacterons.</p></div>
 <div class="contact-layout">
-<aside class="contact-aside"><p class="eyebrow">Un geste utile, une panne en moins</p><h2 class="eco-title">Réparer plutôt que <span>jeter</span></h2><p>Un appareil en panne ne mérite pas forcément de finir à la déchetterie.</p><p>Chez V Dépannage, le diagnostic permet d’identifier l’origine du problème et de vous orienter vers la solution la plus adaptée.</p><p>Lorsque la réparation est possible, elle permet de prolonger la vie de votre appareil, de limiter les déchets et de préserver les ressources.</p><p><strong>Moins de déchets, plus de réparations.</strong></p></aside>
-<section class="contact-card"><h2>Votre demande de diagnostic</h2>
-<form class="diagnostic-form" action="https://formsubmit.co/v.depannage@protonmail.com" method="POST">
+<aside class="contact-aside"><h2>Réparer plutôt que jeter</h2><p>Un appareil en panne ne mérite pas forcément de finir à la déchetterie.</p><p>Chez V Dépannage, le diagnostic permet de rechercher l’origine du problème et de vous conseiller sur la solution adaptée. Lorsque c’est possible, nous privilégions la réparation pour prolonger la vie de vos appareils et limiter les déchets.</p><p><strong>Moins de déchets, plus de réparations.</strong></p></aside>
+<section class="contact-card" id="demande"><h2>Votre demande de diagnostic</h2>
+<form id="diagnostic-form" action="https://formsubmit.co/v.depannage@protonmail.com" method="POST">
 <input type="hidden" name="_subject" value="Nouvelle demande de diagnostic - V Dépannage"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://asencombrants00.github.io/VD-pannage/merci.html"><input type="hidden" name="_captcha" value="false">
-<div class="form-honey" aria-hidden="true"><label for="website">Ne pas remplir ce champ</label><input type="text" name="_honey" id="website" tabindex="-1" autocomplete="off"></div>
-<div class="form-field"><label for="categorie">Type d’appareil</label><select id="categorie" name="Type d’appareil" required><option value="" selected disabled>Choisissez une catégorie</option><option value="Gros électroménager">Gros électroménager</option><option value="Petit électroménager">Petit électroménager</option></select></div>
-<div class="form-field"><label for="appareil">Appareil concerné</label><select id="appareil" name="Appareil" required disabled><option value="" selected>Choisissez d’abord une catégorie</option></select></div>
-<div class="form-field" id="adresse-wrap" hidden><label for="adresse">Adresse de l’appareil</label><input id="adresse" name="Adresse de l’appareil" autocomplete="street-address" placeholder="Adresse complète"></div>
-<div class="form-field"><label for="telephone">Numéro de téléphone</label><input type="tel" id="telephone" name="Téléphone" autocomplete="tel" placeholder="06 00 00 00 00" required></div>
-<div class="form-field"><label for="modele">Marque et modèle (si connus)</label><input type="text" id="modele" name="Marque et modèle" placeholder="Ex. : Bosch, référence…"></div>
-<div class="form-field"><label for="description">Description du problème</label><textarea id="description" name="Description de la panne" rows="5" placeholder="Décrivez les symptômes et depuis quand la panne est présente…" required></textarea></div>
+<div class="form-honey" aria-hidden="true"><label for="website">Ne pas remplir</label><input type="text" name="_honey" id="website" tabindex="-1" autocomplete="off"></div>
+<div class="form-field"><label for="category">Type d’appareil</label><select id="category" name="Type d’appareil" required><option value="">Sélectionnez une catégorie</option><option value="Gros électroménager">Gros électroménager — intervention à domicile</option><option value="Petit électroménager">Petit électroménager — dépôt à l’atelier (sans frais de déplacement)</option></select></div>
+<div class="form-field"><label for="appliance">Appareil</label><select id="appliance" name="Appareil" required disabled><option value="">Sélectionnez d’abord une catégorie</option></select></div>
+<div class="form-field"><label for="brand">Marque et modèle</label><input id="brand" name="Marque et modèle" placeholder="Marque, modèle ou référence" required></div>
+<div class="form-field"><label for="phone">Numéro de téléphone</label><input id="phone" name="Téléphone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" required></div>
+<div class="form-field" id="address-wrap" hidden><label for="address">Adresse d’intervention</label><div class="suggestions"><input id="address" name="Adresse d’intervention" autocomplete="street-address" placeholder="Adresse, ville ou code postal"><div class="suggestion-list" id="suggestions" hidden></div></div><p class="help">Commencez à saisir votre ville et choisissez une suggestion pour estimer la distance depuis Saint-Maurice-l’Exil.</p><p class="notice">La recherche d’adresse utilise un service cartographique externe pour estimer la distance.</p></div>
+
+<div class="price-box" id="price-box" aria-live="polite"></div><input type="hidden" id="distance-field" name="Distance estimée depuis Saint-Maurice-l’Exil"><input type="hidden" id="price-field" name="Prix estimé du diagnostic">
+<div class="form-field"><label for="problem">Description du problème</label><textarea id="problem" name="Description de la panne" placeholder="Décrivez les symptômes et depuis quand la panne est présente…" required></textarea></div>
+<div class="form-field"><label for="customer-name">Nom et prénom</label><input id="customer-name" name="Nom et prénom" autocomplete="name" placeholder="Votre nom et prénom" required></div>
+<div class="form-field"><label for="email">Adresse e-mail</label><input id="email" name="E-mail du client" type="email" autocomplete="email" placeholder="vous@exemple.fr" required></div>
 <button class="primary-button submit-button" type="submit">Envoyer ma demande <span>›</span></button>
 </form></section></div></main>
 <footer class="site-footer"><p>© <span id="current-year"></span> V Dépannage — Tous droits réservés.</p></footer>
-<script src="js/script.js"></script>
 <script>
-(function(){const cat=document.getElementById('categorie'),app=document.getElementById('appareil'),addrWrap=document.getElementById('adresse-wrap'),addr=document.getElementById('adresse');
-const choices={'Gros électroménager':['Lave-linge','Lave-vaisselle','Sèche-linge','Réfrigérateur / congélateur','Four / cuisinière','Plaque de cuisson','Hotte','Autre gros électroménager'],'Petit électroménager':['Aspirateur','Machine à café','Bouilloire / grille-pain','Robot / mixeur','Fer à repasser','Appareil de cuisson','Autre petit électroménager']};
-cat.addEventListener('change',function(){app.innerHTML='<option value="" selected disabled>Choisissez un appareil</option>';(choices[cat.value]||[]).forEach(function(label){const o=document.createElement('option');o.value=label;o.textContent=label;app.appendChild(o)});app.disabled=!choices[cat.value];const big=cat.value==='Gros électroménager';addrWrap.hidden=!big;addr.required=big;if(!big)addr.value='';});
-})();
+document.getElementById('current-year').textContent=new Date().getFullYear();
+const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('main-nav');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+const category=document.getElementById('category'),appliance=document.getElementById('appliance'),addressWrap=document.getElementById('address-wrap'),address=document.getElementById('address'),suggestions=document.getElementById('suggestions'),priceBox=document.getElementById('price-box'),distanceField=document.getElementById('distance-field'),priceField=document.getElementById('price-field');
+const devices={'Gros électroménager':['Lave-linge','Sèche-linge','Lave-vaisselle','Réfrigérateur','Congélateur','Four','Cuisinière','Plaque de cuisson','Hotte','Cave à vin','Autre gros électroménager'],'Petit électroménager':['Aspirateur','Machine à café','Robot / robot pâtissier','Bouilloire','Grille-pain','Micro-ondes','Fer à repasser','Centrale vapeur','Mixeur / blender','Friteuse','Autre petit électroménager']};
+let chosenPlace=null,lookupTimer;
+category.addEventListener('change',()=>{appliance.innerHTML='<option value="">Sélectionnez un appareil</option>';(devices[category.value]||[]).forEach(v=>{let o=document.createElement('option');o.value=v;o.textContent=v;appliance.appendChild(o)});appliance.disabled=!category.value;const big=category.value==='Gros électroménager';addressWrap.hidden=!big;address.required=big;chosenPlace=null;distanceField.value='';priceField.value='';priceBox.style.display='none';suggestions.hidden=true;if(category.value==='Petit électroménager'){distanceField.value='Aucun déplacement — dépôt à l’atelier';priceField.value='20 €';priceBox.innerHTML='Diagnostic petit électroménager : <strong>20 €</strong><br><span class="help">Dépôt à l’atelier — aucun frais de déplacement.</span>';priceBox.style.display='block'}});
+
+address.addEventListener('input',()=>{clearTimeout(lookupTimer);chosenPlace=null;distanceField.value='';priceField.value='';priceBox.style.display='none';const q=address.value.trim();if(q.length<3){suggestions.hidden=true;return}lookupTimer=setTimeout(async()=>{try{const u='https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=6&countrycodes=fr&q='+encodeURIComponent(q);const r=await fetch(u);const rows=await r.json();suggestions.innerHTML='';rows.forEach(place=>{const a=place.address||{};const town=a.city||a.town||a.village||a.municipality||a.hamlet||place.name||'';const cp=a.postcode||'';const label=(town?town+(cp?' ('+cp+')':''):'')+' — '+place.display_name;const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>{address.value=label;chosenPlace={lat:+place.lat,lon:+place.lon,label};suggestions.hidden=true;estimate();});suggestions.appendChild(b)});suggestions.hidden=rows.length===0}catch(e){suggestions.hidden=true}},450)});
+async function estimate(){if(!chosenPlace)return;try{const start='4.778,45.399';const end=chosenPlace.lon+','+chosenPlace.lat;const r=await fetch('https://router.project-osrm.org/route/v1/driving/'+start+';'+end+'?overview=false');const data=await r.json();if(!data.routes||!data.routes[0])throw Error();const km=data.routes[0].distance/1000;let price,detail;if(km<=15){price=50;detail='jusqu’à 15 km'}else if(km<=30){price=60;detail='de 15 à 30 km'}else if(km<=50){price=70;detail='de 30 à 50 km'}else{price=null;detail='au-delà de 50 km — sur devis'}distanceField.value=km.toFixed(1)+' km (itinéraire routier estimé)';priceField.value=price===null?'Sur devis':price+' €';priceBox.innerHTML='Distance routière estimée : <strong>'+km.toFixed(1)+' km</strong><br>Diagnostic + déplacement : <strong>'+(price===null?'Sur devis':price+' €')+'</strong><br><span class="help">'+detail+'</span>';priceBox.style.display='block'}catch(e){distanceField.value='Non calculée';priceField.value='À confirmer';priceBox.innerHTML='Distance ou tarif à confirmer manuellement. <strong>La demande peut tout de même être envoyée.</strong>';priceBox.style.display='block'}}
+document.getElementById('diagnostic-form').addEventListener('submit',e=>{if(category.value==='Petit électroménager'){distanceField.value='Aucun déplacement — dépôt à l’atelier';priceField.value='20 €';}if(category.value==='Gros électroménager'&&!chosenPlace){e.preventDefault();alert('Choisissez une adresse dans les suggestions pour calculer la distance estimée.');address.focus()}});
 </script></body></html>
